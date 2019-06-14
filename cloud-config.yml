@@ -1,0 +1,72 @@
+hostname: rancheros
+
+rancher:
+  console: ubuntu
+  network:
+    dns:
+      nameservers:
+      - 1.1.1.1
+      - 1.0.0.1
+    interfaces:
+      eth0:
+        address: 192.168.1.10/24
+        dhcp: false
+        gateway: 192.168.1.1
+        mtu: 1500
+
+ssh_authorized_keys:
+- ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC6QKNOTGkUHdrARTJhfIZ7PtOIlkHhZu47njjawoi99V7JeXtpHUcNwfbqGeIExJR5aD87lW8TaqUyEBEMY/szF9oUogtFqseDZOEc78P+0jCecjMBSJKzVhr8qyL+kPFYeY2liMUicY9A8xQjUzPaTEawPhlTd0z8XCuaZL+3r8ge/rvJ92j01/TZKujySe9AHz2lB53MezFyLkQgLjCms4V7rAN03WFEaE/Xx2us6M3DjT+YjSoQ6jwf3+ziiK/hYUD0UG/y/gCSFJx3p82DOakA0byFvedC0iTivt1KS/VWgLkbDhVqmz8qEpSkOm3ZwwSKKtYySVvXeKminRxZZZwAwXKvtPvrhBDnvCf20ovyDiMD25njSBDna+uMqFHrU0/sUjOmRpMMALYZzuEzIXQ1o6UtXNdJz10syJT1EKg7byor15dUO2ofNLg7Z2mC/KT2NjFyzuR0Kiv2mX704mJjED8SfNCNNH9KWyfeQqbZ3I0g4/8CjmcTQnOB2kvsA87oC85qFP0V3fGO8toDGOpVIaWB22lINjvqeHrhjEH2oLe0DVdV7FBtPgXYVU4O+MJFYNl8S5P/Jm1lg6pJ0Ki/tOcb7gZQH5p7BRttX64RL5CF1KuyC7QIiQj50Te9rvjoU66hQGMAubLF57dvWyFfV0gY9l/xIT4/HXdUFw==
+
+runcmd:
+- apt update
+- apt -y install vim
+
+write_files:
+- path: /etc/rc.local
+  permissions: "0755"
+  owner: root
+  content: |
+    #!/bin/bash
+    wait-for-docker
+
+- path: /home/rancher/traefik.yml
+  permissions: "0644"
+  owner: rancher
+  content: |
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+- path: /home/rancher/.vimrc
+  permissions: "0644"
+  owner: rancher
+  content: |
+    set number
+    set linebreak
+    set showbreak=+++
+    set textwidth=100
+    set showmatch 
+    set visualbell
+    set hlsearch
+    set smartcase
+    set ignorecase
+    set incsearch
+    set autoindent
+    set expandtab
+    set shiftwidth=2
+    set smartindent
+    set smarttab
+    set softtabstop=2
+    set ruler
+    set undolevels=1000
+    set backspace=indent,eol,start
+    

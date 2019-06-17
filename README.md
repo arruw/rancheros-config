@@ -1,6 +1,10 @@
-# Install
+# Install RancherOS, Traefik, Let's Encrypt & Rancher Server
+Boot Rancher OS from the iso image, then follow the instructions.
 
 ## 1. Clone this repository
+```
+git clone git@github.com:matjazmav/rancheros-config.git
+```
 
 ## 2. Install RancherOS
 Check the config file: **cloud-config.yml** (ssh keys, interface, ...)

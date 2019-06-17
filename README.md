@@ -16,6 +16,7 @@ After that restart computer. Now you should SSH to your machine.
 
 ## 3. Start the services
 Check the config files:
+
     - **configs/traefik/traefik.toml** (email, domain, ...)
     - **docker-compose.yml** (domain, ...)
 

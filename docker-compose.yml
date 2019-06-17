@@ -1,0 +1,33 @@
+version: '3.3'
+
+services:
+  traefik:
+    image: traefik:v1.7
+    restart: unless-stopped
+    networks:
+      - web
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./configs/traefik/traefik.toml:/etc/traefik/traefik.toml:ro
+      - ./data/traefik:/var/opt
+    env_file:
+      - ./secrets.env
+
+  rancher:
+    image: rancher/server:v1.6.28
+    restart: unless-stopped
+    networks:
+      - web
+    volumes:
+      - ./data/rancher:/var/lib/mysql
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=8080"
+      - "traefik.frontend.rule=Host:rancher.mav.duckdns.org"
+
+networks:
+  web:
+    external: true

@@ -3,11 +3,11 @@ Boot Rancher OS from the iso image, then follow the instructions.
 
 ## 1. Clone this repository
 ```
-git clone git@github.com:matjazmav/rancheros-config.git
+git clone https://github.com/matjazmav/rancheros-config.git
 ```
 
 ## 2. Install RancherOS
-Check the config file: **cloud-config.yml** (ssh keys, interface, ...)
+Check the config file: cloud-config.yml (ssh keys, interface, ...)
 
 ```bash
 sudo ros install -c cloud-config.yml -d /dev/sda
@@ -17,8 +17,8 @@ After that restart computer. Now you should SSH to your machine.
 ## 3. Start the services
 Check the config files:
 
-    - **configs/traefik/traefik.toml** (email, domain, ...)
-    - **docker-compose.yml** (domain, ...)
+    - configs/traefik/traefik.toml (email, domain, ...)
+    - docker-compose.yml (domain, ...)
 
 ```bash
 # Create network for Traefik porxy
